@@ -40,6 +40,12 @@ kotlin {
     }
     
     sourceSets {
+
+        val wasmJsMain by getting {
+            dependencies {
+                // Add dependencies if necessary for the wasm target
+            }
+        }
         
         androidMain.dependencies {
             implementation(compose.preview)
@@ -57,7 +63,7 @@ kotlin {
             implementation(libs.compottie)
             implementation(libs.compottie.network)
             implementation(libs.ktor)
-
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
         }
     }
 }
