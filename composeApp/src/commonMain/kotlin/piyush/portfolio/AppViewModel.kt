@@ -13,17 +13,17 @@ import kotlinx.coroutines.withContext
 
 class AppViewModel {
 
-    private val _animate = MutableStateFlow<LottieComposition?>(null)
-    val animate = _animate.asStateFlow()
+    private val _composition = MutableStateFlow<LottieComposition?>(null)
+    val composition = _composition.asStateFlow()
 
     @OptIn(DelicateCoroutinesApi::class)
-    fun loadIcon() {
+    fun loadIcon(url: String) {
         GlobalScope.launch {
             val composition =
-                LottieCompositionSpec.Companion.Url(url = "https://lottie.host/fc0a6552-62b7-4c96-806e-1012e1a9d21c/laicAPPDNl.json")
+                LottieCompositionSpec.Companion.Url(url = url)
                     .load()
             withContext(Dispatchers.Main) {
-                _animate.value = composition
+                _composition.value = composition
             }
         }
     }

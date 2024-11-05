@@ -10,8 +10,11 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import io.github.alexzhirkevich.compottie.LottieCompositionSpec
 import io.github.alexzhirkevich.compottie.animateLottieCompositionAsState
+import io.github.alexzhirkevich.compottie.rememberLottieComposition
 import io.github.alexzhirkevich.compottie.rememberLottiePainter
+import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -46,13 +49,23 @@ fun App() {
     }
 }
 
+@OptIn(ExperimentalResourceApi::class)
 @Composable
 fun CreateICon(viewModel: AppViewModel) {
 
-    viewModel.loadIcon()
+    //using compottie-network
+    /*viewModel.loadIcon("https://lottie.host/fc0a6552-62b7-4c96-806e-1012e1a9d21c/laicAPPDNl.json")
 
-    val composition by viewModel.animate.collectAsState()
+    val composition by viewModel.composition.collectAsState()
+    val progress by animateLottieCompositionAsState(composition)*/
+
+    val composition by rememberLottieComposition {
+        LottieCompositionSpec.JsonString(
+            Res.readBytes("files/lottie_andorid_kotlin.json").decodeToString()
+        )
+    }
     val progress by animateLottieCompositionAsState(composition)
+
 
     Text("Testing1")
     Image(

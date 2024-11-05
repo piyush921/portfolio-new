@@ -63,7 +63,7 @@ kotlin {
             implementation(libs.compottie)
             implementation(libs.compottie.network)
             implementation(libs.ktor)
-            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
+            implementation(libs.kotlin.coroutines)
         }
     }
 }
