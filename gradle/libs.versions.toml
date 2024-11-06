@@ -18,6 +18,8 @@ lottie = "0.5.1"
 ktor = "3.0.0"
 compottie = "2.0.0-rc02"
 kotlin-coroutines = "1.9.0"
+kotlin-browser = "0.3"
+kotlin-html = "0.11.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -37,6 +39,8 @@ ktor = { group = "io.ktor", name = "ktor-server-core", version.ref = "ktor"}
 compottie = { group = "io.github.alexzhirkevich", name = "compottie", version.ref = "compottie"}
 compottie-network = { group = "io.github.alexzhirkevich", name = "compottie-network", version.ref = "compottie"}
 kotlin-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlin-coroutines"}
+kotlin-browser = { group = "org.jetbrains.kotlinx", name = "kotlinx-browser", version.ref = "kotlin-browser"}
+kotlin-html = { group = "org.jetbrains.kotlinx", name = "kotlinx-html", version.ref = "kotlin-html"}
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

@@ -64,6 +64,8 @@ kotlin {
             implementation(libs.compottie.network)
             implementation(libs.ktor)
             implementation(libs.kotlin.coroutines)
+            implementation(libs.kotlin.browser)
+            implementation(libs.kotlin.html)
         }
     }
 }

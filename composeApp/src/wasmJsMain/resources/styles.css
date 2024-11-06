@@ -5,3 +5,28 @@ html, body {
     padding: 0;
     overflow: hidden;
 }
+
+<style>
+    .view-pager {
+        width: 100vw;        /* Full viewport width */
+        height: 100vh;       /* Full viewport height */
+        overflow-y: auto;    /* Vertical scrolling */
+        scroll-snap-type: y mandatory; /* Snap scrolling vertically */
+    }
+
+    .page {
+        width: 100%;
+        height: 100vh;       /* Each page takes up full viewport height */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        scroll-snap-align: start; /* Snap each page to the start */
+        font-size: 2em;
+        background-color: green;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .page:nth-child(odd) {
+        background-color: #f0f0f0; /* Alternate background colors */
+    }
+</style>
