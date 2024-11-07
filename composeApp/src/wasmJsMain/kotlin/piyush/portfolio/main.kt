@@ -36,7 +36,7 @@ private fun getViewPager(): HTMLDivElement {
 }
 
 fun setupArrowKeys() {
-    document.addEventListener("keydown", { event ->
+    document.addEventListener("keydown") { event ->
         val keyboardEvent = event as? KeyboardEvent ?: return@addEventListener
         consoleLog("page: $currentPage")
         when (keyboardEvent.key) {
@@ -56,7 +56,7 @@ fun setupArrowKeys() {
                 scrollToPage(getAllPages()[currentPage] as? HTMLDivElement)
             }
         }
-    })
+    }
 }
 
 fun scrollToPage(element: HTMLElement?) {
