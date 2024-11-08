@@ -39,6 +39,9 @@ html, body {
     .left-section {
         flex: 2;
         background-color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
     .left-section h1 {
@@ -48,12 +51,14 @@ html, body {
     }
 
     .left-section h2 {
-        font-size: 40px;
+        font-size: 60px;
         color: #6a4bc3;
         margin-top: 200px;
         margin-bottom: 0px;
         text-align: center;
         white-space: pre-line;
+        font-weight: bold;
+        line-height: 0.9;
     }
 
     .left-section h3 {
@@ -62,6 +67,11 @@ html, body {
         text-align: center;
         margin: 0px;
         white-space: pre-line;
+    }
+
+    .left-section p {
+        font-size: 20px;
+        text-align: center;
     }
 
     .right-section {
@@ -84,6 +94,18 @@ html, body {
         transform: translate(-50%, -50%);
         max-width: 300px; /* You can adjust the size */
         max-height: 300px;
+    }
+
+    .bottom-statements {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .bottom-statements p {
+        display: inline-block;
+        margin: 0;
+        flex: 1;
     }
 
 /*css end for viewpager*/
