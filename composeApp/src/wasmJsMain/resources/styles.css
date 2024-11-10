@@ -6,193 +6,129 @@ html, body {
     overflow: hidden;
 }
 
-/*css start for viewpager*/
-    .view-pager {
-        width: 100vw;        /* Full viewport width */
-        height: 100vh;       /* Full viewport height */
-        overflow-y: auto;    /* Vertical scrolling */
-        scroll-snap-type: y mandatory; /* Snap scrolling vertically */
-    }
+.view-pager {
+    width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+}
 
-    .page {
-        width: 100%;
-        height: 100vh;       /* Each page takes up full viewport height */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        scroll-snap-align: start; /* Snap each page to the start */
-        font-size: 2em;
-        background-color: green;
-        border-bottom: 1px solid #ddd;
-    }
+.page {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: start;
+    font-size: 2em;
+    background-color: green;
+    border-bottom: 1px solid #ddd;
+}
 
-    .page:nth-child(odd) {
-        background-color: #f0f0f0; /* Alternate background colors */
-    }
-
-    .container {
-        display: flex;
-        height: 100vh;
-        width: 100%;
-    }
-
-    .left-section {
-        flex: 2;
-        background-color: #ffffff;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    .left-section h1 {
-        color: #000000;
-        margin-left: 40px;
-        font-size: 40px;
-    }
-
-    .left-section h2 {
-        font-size: 60px;
-        color: #6a4bc3;
-        margin-top: 200px;
-        margin-bottom: 0px;
-        text-align: center;
-        white-space: pre-line;
-        font-weight: bold;
-        line-height: 0.9;
-    }
-
-    .left-section h3 {
-        font-size: 20px;
-        color: #6f6f6f;
-        text-align: center;
-        margin: 0px;
-        white-space: pre-line;
-    }
-
-    .left-section p {
-        font-size: 20px;
-        text-align: center;
-    }
-
-    .right-section {
-      flex: 1;
-        background-color: #a4c639;
-    }
-
-    .image-placeholder {
-        position: relative;
-        width: 1px; /* Thin line for the divider */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .image-placeholder img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        max-width: 300px; /* You can adjust the size */
-        max-height: 300px;
-    }
-
-    .bottom-statements {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-    }
-
-    .bottom-statements p {
-        display: inline-block;
-        margin: 0;
-        flex: 1;
-    }
-
-/*css end for viewpager*/
-
-/*css start for first page design*/
-
-
-
-/** {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}*/
-
-/*body {
-  font-family: Arial, sans-serif;
-  display: flex;
-  height: 100vh;
-  background-color: #f8f8f8;
-  align-items: center;
-  justify-content: center;
+.page:nth-child(odd) {
+    background-color: #f0f0f0;
 }
 
 .container {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  background-color: #f8f8f8;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    height: 100vh;
+    width: 100%;
 }
 
 .left-section {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: #333;
+    flex: 2;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    background-color: #3f51b5;
+}
+
+.left-section .top-lottie {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .left-section h1 {
-  font-size: 44px;
-  color: #000;
-  margin-bottom: 20px;
+    color: #ffffff;
+    margin-left: 70px;
+    margin-top: 60px;
+    font-size: 50px;
 }
 
 .left-section h2 {
-  font-size: 40px;
-  color: #6a4bc3;
-  text-align: center;
-  margin-bottom: 10px;
-  white-space: pre-line;
-  align-self: center;
+    font-size: 80px;
+    color: #F0E78C;
+    margin-top: 120px;
+    margin-bottom: 10px;
+    text-align: center;
+    white-space: pre-line;
+    font-weight: bold;
+    line-height: 0.9;
 }
 
-.left-section p {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 30px;
-  text-align: center;
+.left-section h3 {
+    font-size: 40px;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 50px;
+    margin: 0px;
+    white-space: pre-line;
 }
 
-.footer-text {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  color: #6a4bc3;
-  font-size: 14px;
-  text-align: center;
+.bottom-statements {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.bottom-statements p {
+    display: inline-block;
+    margin: 0;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 100px;
+    color: #F0E78C;
+    white-space: pre-line;
+    flex: 1;
 }
 
 .right-section {
-  flex: 1;
-  background-color: #a2c056;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    flex: 1;
+    background-color: #F0E78C;
+}
+
+@keyframes slideRightToLeft {
+    0% {
+        transform: translateX(100vw); /* Start off-screen to the right */
+    }
+    100% {
+        transform: translateX(0); /* End in its normal position */
+    }
+}
+
+.animated-lottie {
+    animation: slideRightToLeft 2s ease-in-out forwards; /* Adjust duration and easing as needed */
 }
 
 .image-placeholder {
-  width: 80px;
-  height: 80px;
-  background-color: #d4e4aa;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #888;
-  font-size: 18px;
-}*/
-/*css end for first page design*/
+    position: relative;
+    width: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-placeholder img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 500px;
+    max-height: 500px;
+}
+
+
+.page2-top-lottie {
+
+}
