@@ -6,6 +6,33 @@ html, body {
     overflow: hidden;
 }
 
+.icon-container {
+    position: fixed;
+    right: 60px; /* 60px from the right side */
+    bottom: 60px; /* 60px from the bottom */
+    display: flex;
+    flex-direction: column; /* Arrange buttons vertically */
+    gap: 40px; /* 40px space between buttons */
+    z-index: 1;
+}
+
+.icon-button {
+    width: 50px;
+    height: 50px;
+    background-color: #007bff; /* Fallback color */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.icon-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
 .view-pager {
     width: 100vw;
     height: 100vh;
