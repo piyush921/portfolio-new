@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">My awesome app</string>
+    <string name="over_the_years">
+I've built mobile and multimedia solutions for companies across industries—ranging from streaming platforms to real-time communication apps—with a strong focus on performance, scalability, and intuitive user experiences.
+
+Currently, I work as a Senior Android Developer at PlanetCast Media Services, where I lead the development of OTT and live-streaming apps used by thousands of viewers, ensuring smooth playback, offline capabilities, and seamless integration with complex backend systems.
+
+Previously, I was an Android Developer at NSG Systems, where I worked on a diverse range of apps—from on-demand cab booking platforms to photo editing tools enhanced with AI—serving both enterprise and consumer users.
+
+Before that, I contributed as a full-stack developer across various freelance and contract roles, building end-to-end applications using modern Android stacks, Firebase, and FFmpeg for media processing.
+
+My work spans crafting reliable ExoPlayer integrations, building custom playback experiences, and ensuring app stability across Android TV, mobile, and Fire TV platforms.
+    </string>
+</resources>

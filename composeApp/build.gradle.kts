@@ -64,7 +64,7 @@ kotlin {
             implementation(libs.compottie.network)
             implementation(libs.ktor)
             implementation(libs.kotlin.coroutines)
-            implementation(libs.kotlin.browser)
+//            implementation(libs.kotlin.browser)
             implementation(libs.kotlin.html)
         }
     }
@@ -95,6 +95,8 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
+    experimentalProperties["android.experimental.kmp.enableAndroidResources"] = true
 }
 
 dependencies {
