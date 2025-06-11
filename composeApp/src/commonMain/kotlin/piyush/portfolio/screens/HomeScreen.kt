@@ -29,6 +29,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.IntOffset
@@ -41,12 +42,15 @@ import io.github.alexzhirkevich.compottie.Url
 import io.github.alexzhirkevich.compottie.rememberLottieComposition
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.ExperimentalResourceApi
+import org.jetbrains.compose.resources.Font
 import org.jetbrains.compose.resources.InternalResourceApi
 import org.jetbrains.compose.resources.painterResource
 import portfolio_new.composeapp.generated.resources.Res
 import portfolio_new.composeapp.generated.resources.bg_home
 import portfolio_new.composeapp.generated.resources.bg_home_one
 import portfolio_new.composeapp.generated.resources.dp
+import portfolio_new.composeapp.generated.resources.lato_bold
+import portfolio_new.composeapp.generated.resources.lato_light
 
 
 @OptIn(InternalResourceApi::class, ExperimentalResourceApi::class)
@@ -84,6 +88,7 @@ fun PagerScope.HomeScreen(pagerState: PagerState) {
                         fontWeight = FontWeight.Bold,
                         color = Color.White,
                         fontSize = 40.sp,
+                        fontFamily = FontFamily(Font(Res.font.lato_bold)),
                         modifier = Modifier.padding(40.dp)
                     )
                     LottieAnimation(
@@ -102,12 +107,14 @@ fun PagerScope.HomeScreen(pagerState: PagerState) {
                             fontWeight = FontWeight.Bold,
                             color = Color.White,
                             fontSize = 90.sp,
+                            fontFamily = FontFamily(Font(Res.font.lato_bold)),
                             modifier = Modifier
                         )
                         Text(
                             text = "Building intuitive mobile experiences\nfrom scratch to production.",
                             color = Color.Gray,
                             fontSize = 30.sp,
+                            fontFamily = FontFamily(Font(Res.font.lato_light)),
                             modifier = Modifier.padding(top = 20.dp)
                         )
                     }
@@ -121,12 +128,14 @@ fun PagerScope.HomeScreen(pagerState: PagerState) {
                         text = "Experienced in wide\nvariety of fields\nincluding OTT, social\nmedia, cabs,\nE-commerce.",
                         color = Color.Gray,
                         fontSize = 25.sp,
+                        fontFamily = FontFamily(Font(Res.font.lato_light)),
                         modifier = Modifier.padding(60.dp)
                     )
                     Text(
                         text = "Proven to be an\nearly adapter, fast\nlearner and build\nsuccessful\nproducts.",
                         color = Color.Gray,
                         fontSize = 25.sp,
+                        fontFamily = FontFamily(Font(Res.font.lato_light)),
                         modifier = Modifier.padding(60.dp)
                     )
                 }
@@ -138,18 +147,21 @@ fun PagerScope.HomeScreen(pagerState: PagerState) {
                     Text(
                         text = "About",
                         color = Color.White,
+                        fontFamily = FontFamily(Font(Res.font.lato_light)),
                         modifier = Modifier.padding(20.dp).onFocusChanged {  },
                         fontSize = 25.sp
                     )
                     Text(
                         text = "About",
                         color = Color.White,
+                        fontFamily = FontFamily(Font(Res.font.lato_light)),
                         modifier = Modifier.padding(20.dp),
                         fontSize = 25.sp
                     )
                     Text(
                         text = "About",
                         color = Color.White,
+                        fontFamily = FontFamily(Font(Res.font.lato_light)),
                         modifier = Modifier.padding(20.dp),
                         fontSize = 25.sp
                     )

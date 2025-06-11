@@ -19,6 +19,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -29,12 +30,15 @@ import io.github.alexzhirkevich.compottie.LottieConstants
 import io.github.alexzhirkevich.compottie.Url
 import io.github.alexzhirkevich.compottie.rememberLottieComposition
 import org.jetbrains.compose.resources.ExperimentalResourceApi
+import org.jetbrains.compose.resources.Font
 import org.jetbrains.compose.resources.InternalResourceApi
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import piyush.portfolio.AndroidGreen
 import piyush.portfolio.BgColor
 import portfolio_new.composeapp.generated.resources.Res
+import portfolio_new.composeapp.generated.resources.lato_bold
+import portfolio_new.composeapp.generated.resources.lato_light
 import portfolio_new.composeapp.generated.resources.oty_image
 import portfolio_new.composeapp.generated.resources.oty_image_one
 import portfolio_new.composeapp.generated.resources.oty_image_two
@@ -68,11 +72,13 @@ fun PagerScope.OverTheYearsScreen(pagerState: PagerState) {
                     text = "Over the\nyears,",
                     color = AndroidGreen,
                     fontSize = 80.sp,
+                    fontFamily = FontFamily(Font(Res.font.lato_bold)),
                     fontWeight = FontWeight.Bold
                 )
                 Text(
                     text = stringResource(Res.string.over_the_years),
                     color = Color.White,
+                    fontFamily = FontFamily(Font(Res.font.lato_light)),
                     fontSize = 25.sp
                 )
             }
