@@ -5,6 +5,8 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -97,7 +99,9 @@ fun PagerScope.ExperienceScreen(pagerState: PagerState) {
                         fontFamily = FontFamily(Font(Res.font.lato_light))
                     )
                     Spacer(modifier = Modifier.height(30.dp))
-                    CreateButton("See my Work")
+                    CreateButton("See my Work") {
+
+                    }
                 }
                 Spacer(modifier = Modifier.width(2.dp).fillMaxHeight().background(AndroidGreen))
                 Column(modifier = Modifier.width(450.dp)) {
@@ -116,7 +120,9 @@ fun PagerScope.ExperienceScreen(pagerState: PagerState) {
                         fontFamily = FontFamily(Font(Res.font.lato_light))
                     )
                     Spacer(modifier = Modifier.height(20.dp))
-                    CreateButton("See my Experimental")
+                    CreateButton("See my Experimental") {
+
+                    }
                 }
             }
         }
@@ -126,12 +132,13 @@ fun PagerScope.ExperienceScreen(pagerState: PagerState) {
 }
 
 @Composable
-fun CreateButton(title: String) {
+fun CreateButton(title: String, onClick: () -> Unit) {
     var isHovered by remember { mutableStateOf(false) }
+    val interactionSource = remember { MutableInteractionSource() }
 
     val animationProgress by animateFloatAsState(
         targetValue = if (isHovered) 1f else 0f,
-        animationSpec = tween(durationMillis = 300, easing = FastOutSlowInEasing),
+        animationSpec = tween(durationMillis = 200, easing = FastOutSlowInEasing),
         label = "hoverAnim"
     )
 
@@ -151,6 +158,12 @@ fun CreateButton(title: String) {
             .graphicsLayer {
                 clip = true
                 shape = RoundedCornerShape(0.dp)
+            }
+            .clickable(
+                interactionSource = interactionSource,
+                indication = null // 👈 disables default hover effect
+            ) {
+                onClick()
             }
             .background(Color.Transparent)
     ) {
