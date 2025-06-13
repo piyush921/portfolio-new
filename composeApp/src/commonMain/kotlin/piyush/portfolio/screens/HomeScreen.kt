@@ -1,8 +1,6 @@
 package piyush.portfolio.screens
 
-import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -11,10 +9,8 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.pager.PagerScope
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.material.Text
@@ -24,15 +20,11 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
-import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import io.github.alexzhirkevich.compottie.LottieAnimation
@@ -40,17 +32,20 @@ import io.github.alexzhirkevich.compottie.LottieCompositionSpec
 import io.github.alexzhirkevich.compottie.LottieConstants
 import io.github.alexzhirkevich.compottie.Url
 import io.github.alexzhirkevich.compottie.rememberLottieComposition
-import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.Font
 import org.jetbrains.compose.resources.InternalResourceApi
 import org.jetbrains.compose.resources.painterResource
+import piyush.portfolio.AndroidGreen
 import portfolio_new.composeapp.generated.resources.Res
 import portfolio_new.composeapp.generated.resources.bg_home
-import portfolio_new.composeapp.generated.resources.bg_home_one
 import portfolio_new.composeapp.generated.resources.dp
+import portfolio_new.composeapp.generated.resources.github
+import portfolio_new.composeapp.generated.resources.instagram
 import portfolio_new.composeapp.generated.resources.lato_bold
 import portfolio_new.composeapp.generated.resources.lato_light
+import portfolio_new.composeapp.generated.resources.linkedin
+import portfolio_new.composeapp.generated.resources.twitter
 
 
 @OptIn(InternalResourceApi::class, ExperimentalResourceApi::class)
@@ -70,14 +65,14 @@ fun PagerScope.HomeScreen(pagerState: PagerState) {
         modifier = Modifier.fillMaxSize()
     ) {
         Image(
-            painter = painterResource(Res.drawable.bg_home_one),
+            painter = painterResource(Res.drawable.bg_home),
             contentDescription = "home_bg",
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop
         )
         Row() {
             Column(
-                modifier = Modifier.weight(0.7f)/*.background(color = Color.Black)*/
+                modifier = Modifier.weight(0.7f)
                     .fillMaxHeight(),
                 verticalArrangement = Arrangement.SpaceBetween
             ) {
@@ -112,7 +107,7 @@ fun PagerScope.HomeScreen(pagerState: PagerState) {
                         )
                         Text(
                             text = "Building intuitive mobile experiences\nfrom scratch to production.",
-                            color = Color.Gray,
+                            color = Color.White,
                             fontSize = 30.sp,
                             fontFamily = FontFamily(Font(Res.font.lato_light)),
                             modifier = Modifier.padding(top = 20.dp)
@@ -126,14 +121,14 @@ fun PagerScope.HomeScreen(pagerState: PagerState) {
                 ) {
                     Text(
                         text = "Experienced in wide\nvariety of fields\nincluding OTT, social\nmedia, cabs,\nE-commerce.",
-                        color = Color.Gray,
+                        color = AndroidGreen,
                         fontSize = 25.sp,
                         fontFamily = FontFamily(Font(Res.font.lato_light)),
                         modifier = Modifier.padding(60.dp)
                     )
                     Text(
                         text = "Proven to be an\nearly adapter, fast\nlearner and build\nsuccessful\nproducts.",
-                        color = Color.Gray,
+                        color = AndroidGreen,
                         fontSize = 25.sp,
                         fontFamily = FontFamily(Font(Res.font.lato_light)),
                         modifier = Modifier.padding(60.dp)
@@ -141,14 +136,15 @@ fun PagerScope.HomeScreen(pagerState: PagerState) {
                 }
             }
             Column(
-                modifier = Modifier.weight(0.3f)/*.background(color = Color.Gray)*/.fillMaxHeight()
+                modifier = Modifier.weight(0.3f).fillMaxHeight(),
+                verticalArrangement = Arrangement.SpaceBetween
             ) {
                 Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
-                    Text(
+                    /*Text(
                         text = "About",
                         color = Color.White,
                         fontFamily = FontFamily(Font(Res.font.lato_light)),
-                        modifier = Modifier.padding(20.dp).onFocusChanged {  },
+                        modifier = Modifier.padding(20.dp).onFocusChanged { },
                         fontSize = 25.sp
                     )
                     Text(
@@ -164,14 +160,36 @@ fun PagerScope.HomeScreen(pagerState: PagerState) {
                         fontFamily = FontFamily(Font(Res.font.lato_light)),
                         modifier = Modifier.padding(20.dp),
                         fontSize = 25.sp
-                    )
+                    )*/
                 }
-                Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.End) {
-
+                Column(
+                    modifier = Modifier.fillMaxWidth().align(Alignment.End).padding(40.dp),
+                    horizontalAlignment = Alignment.End
+                ) {
+                    Image(
+                        painter = painterResource(Res.drawable.github),
+                        contentDescription = "github",
+                        modifier = Modifier.padding(20.dp).size(50.dp)
+                    )
+                    Image(
+                        painter = painterResource(Res.drawable.linkedin),
+                        contentDescription = "linkedin",
+                        modifier = Modifier.padding(20.dp).size(50.dp)
+                    )
+                    Image(
+                        painter = painterResource(Res.drawable.twitter),
+                        contentDescription = "twitter",
+                        modifier = Modifier.padding(20.dp).size(50.dp)
+                    )
+                    Image(
+                        painter = painterResource(Res.drawable.instagram),
+                        contentDescription = "instagram",
+                        modifier = Modifier.padding(20.dp).size(50.dp)
+                    )
                 }
             }
         }
-        Column(
+        /*Column(
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .clickable {
@@ -192,9 +210,9 @@ fun PagerScope.HomeScreen(pagerState: PagerState) {
                 iterations = LottieConstants.IterateForever,
                 modifier = Modifier.size(50.dp)
             )
-        }
+        }*/
 
-        Canvas(
+        /*Canvas(
             modifier = Modifier.align(alignment = Alignment.Center)
         ) {
             val strokeWidth = 5.dp.toPx()
@@ -207,19 +225,19 @@ fun PagerScope.HomeScreen(pagerState: PagerState) {
                 ),
                 style = Stroke(width = strokeWidth)
             )
-        }
+        }*/
 
         Row(
             modifier = Modifier.fillMaxSize(),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Spacer(modifier = Modifier.weight(0.65f)) // Push content 70% from left
+            Spacer(modifier = Modifier.weight(0.62f))
             Image(
                 painter = painterResource(Res.drawable.dp),
                 contentDescription = "dp",
                 modifier = Modifier.size(500.dp)
             )
-            Spacer(modifier = Modifier.weight(0.35f)) // Fill remaining space
+            Spacer(modifier = Modifier.weight(0.38f))
         }
 
 

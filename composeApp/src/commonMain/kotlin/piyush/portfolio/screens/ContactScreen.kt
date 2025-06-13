@@ -41,6 +41,7 @@ import piyush.portfolio.experienceBgColor
 import piyush.portfolio.onHover
 import portfolio_new.composeapp.generated.resources.Res
 import portfolio_new.composeapp.generated.resources.github
+import portfolio_new.composeapp.generated.resources.instagram
 import portfolio_new.composeapp.generated.resources.lato_bold
 import portfolio_new.composeapp.generated.resources.lato_light
 import portfolio_new.composeapp.generated.resources.linkedin
@@ -100,21 +101,26 @@ fun ContactScreen(pagerState: PagerState) {
             modifier = Modifier.height(1.dp).fillMaxWidth().padding(horizontal = 100.dp)
                 .background(AndroidGreen)
         )
-        Row() {
+        Row(modifier = Modifier.fillMaxWidth().padding(horizontal = 40.dp)) {
             Image(
                 painter = painterResource(Res.drawable.github),
                 contentDescription = "github",
-                modifier = Modifier.padding(50.dp).size(180.dp)
+                modifier = Modifier.padding(50.dp).size(100.dp)
             )
             Image(
                 painter = painterResource(Res.drawable.linkedin),
                 contentDescription = "linkedin",
-                modifier = Modifier.padding(50.dp).size(180.dp)
+                modifier = Modifier.padding(50.dp).size(100.dp)
             )
             Image(
                 painter = painterResource(Res.drawable.twitter),
                 contentDescription = "twitter",
-                modifier = Modifier.padding(50.dp).size(180.dp)
+                modifier = Modifier.padding(50.dp).size(100.dp)
+            )
+            Image(
+                painter = painterResource(Res.drawable.instagram),
+                contentDescription = "instagram",
+                modifier = Modifier.padding(50.dp).size(100.dp)
             )
         }
     }
