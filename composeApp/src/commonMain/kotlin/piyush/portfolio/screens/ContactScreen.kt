@@ -39,6 +39,7 @@ import piyush.portfolio.AndroidGreen
 import piyush.portfolio.BgColor
 import piyush.portfolio.experienceBgColor
 import piyush.portfolio.onHover
+import piyush.portfolio.openUrlInNewTab
 import portfolio_new.composeapp.generated.resources.Res
 import portfolio_new.composeapp.generated.resources.github
 import portfolio_new.composeapp.generated.resources.instagram
@@ -102,26 +103,38 @@ fun ContactScreen(pagerState: PagerState) {
                 .background(AndroidGreen)
         )
         Row(modifier = Modifier.fillMaxWidth().padding(horizontal = 40.dp)) {
-            Image(
-                painter = painterResource(Res.drawable.github),
-                contentDescription = "github",
-                modifier = Modifier.padding(50.dp).size(100.dp)
-            )
-            Image(
-                painter = painterResource(Res.drawable.linkedin),
-                contentDescription = "linkedin",
-                modifier = Modifier.padding(50.dp).size(100.dp)
-            )
-            Image(
-                painter = painterResource(Res.drawable.twitter),
-                contentDescription = "twitter",
-                modifier = Modifier.padding(50.dp).size(100.dp)
-            )
-            Image(
-                painter = painterResource(Res.drawable.instagram),
-                contentDescription = "instagram",
-                modifier = Modifier.padding(50.dp).size(100.dp)
-            )
+            CreateBottomIcon(
+                resource = Res.drawable.github,
+                desc = "github",
+                padding = 50.dp,
+                size = 100.dp
+            ) {
+                openUrlInNewTab("https://github.com/piyush921")
+            }
+            CreateBottomIcon(
+                resource = Res.drawable.linkedin,
+                desc = "linkedin",
+                padding = 50.dp,
+                size = 100.dp
+            ) {
+                openUrlInNewTab("https://www.linkedin.com/in/piyush-kumar-220ba0126")
+            }
+            CreateBottomIcon(
+                resource = Res.drawable.twitter,
+                desc = "twitter",
+                padding = 50.dp,
+                size = 100.dp
+            ) {
+                openUrlInNewTab("https://x.com/kumarpiyush921")
+            }
+            CreateBottomIcon(
+                resource = Res.drawable.instagram,
+                desc = "instagram",
+                padding = 50.dp,
+                size = 100.dp
+            ) {
+                openUrlInNewTab("https://www.instagram.com/piyushj_k/")
+            }
         }
     }
 

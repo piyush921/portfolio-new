@@ -66,6 +66,12 @@ kotlin {
             implementation(libs.kotlin.coroutines)
 //            implementation(libs.kotlin.browser)
             implementation(libs.kotlin.html)
+
+            //ktor
+            implementation(libs.kotlin.ktor.core)
+            implementation(libs.kotlin.ktor.js)
+            implementation(libs.kotlin.ktor.content.negotiations)
+            implementation(libs.kotlin.ktor.serialization)
         }
     }
 }

@@ -1,5 +1,8 @@
 package piyush.portfolio
 
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.window.ComposeViewport
@@ -11,7 +14,7 @@ import org.w3c.dom.HTMLDivElement
 import org.w3c.dom.HTMLElement
 import org.w3c.dom.events.KeyboardEvent
 import org.w3c.dom.get
-import androidx.compose.ui.input.pointer.onPointerEvent
+import piyush.portfolio.screens.LiveProjectsScreen
 
 private const val totalPages = 4
 private var currentPage = 0
@@ -20,14 +23,36 @@ private var currentPage = 0
 @JsExport
 external fun scrollIntoViewSmooth(element: HTMLElement?)
 
-/*@OptIn(ExperimentalJsExport::class)
+@OptIn(ExperimentalJsExport::class)
 @JsExport
-external fun consoleLog(message: String?)*/
+external fun consoleLog(message: String?)
 
 @OptIn(ExperimentalComposeUiApi::class)
 fun main() {
+
     ComposeViewport(document.body!!) {
-        ShowUi(modifier = Modifier)
+
+        val currentPath = remember { mutableStateOf(window.location.pathname) }
+
+        LaunchedEffect(Unit) {
+            window.onpopstate = {
+                currentPath.value = window.location.pathname
+            }
+        }
+
+
+        when (currentPath.value) {
+            "/projects" -> {
+                consoleLog("rendering projects")
+                LiveProjectsScreen()
+            }
+            else -> {
+                consoleLog("rendering home page")
+                ShowUi(modifier = Modifier)
+            }
+        }
+
+        //ShowUi(modifier = Modifier)
     }
     //setupArrowKeys()
     //setupContactsHover()

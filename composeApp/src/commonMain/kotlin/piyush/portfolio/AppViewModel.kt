@@ -1,5 +1,7 @@
 package piyush.portfolio
 
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import io.github.alexzhirkevich.compottie.LottieComposition
 import io.github.alexzhirkevich.compottie.LottieCompositionSpec
 import io.github.alexzhirkevich.compottie.Url
@@ -10,21 +12,25 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import piyush.portfolio.domain.model.Dashboard
+import piyush.portfolio.domain.repository.DashboardRepository
 
-class AppViewModel {
+class AppViewModel: ViewModel() {
 
-    private val _composition = MutableStateFlow<LottieComposition?>(null)
-    val composition = _composition.asStateFlow()
+    private val _dashboardLiveData = MutableStateFlow<Dashboard?>(null)
+    val dashboardLiveData = _dashboardLiveData.asStateFlow()
 
-    @OptIn(DelicateCoroutinesApi::class)
-    fun loadIcon(url: String) {
-        GlobalScope.launch {
-            val composition =
-                LottieCompositionSpec.Companion.Url(url = url)
-                    .load()
-            withContext(Dispatchers.Main) {
-                _composition.value = composition
-            }
-        }
+    init {
+        getDashboard()
     }
+
+    fun getDashboard() {
+
+        viewModelScope.launch {
+            val dashboard = DashboardRepository.fetchDashboard()
+            _dashboardLiveData.emit(dashboard)
+        }
+
+    }
+
 }

@@ -20,6 +20,7 @@ compottie = "2.0.0-rc02"
 kotlin-coroutines = "1.9.0"
 kotlin-browser = "0.3"
 kotlin-html = "0.11.0"
+kotlin-ktor = "2.3.4"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -41,6 +42,10 @@ compottie-network = { group = "io.github.alexzhirkevich", name = "compottie-netw
 kotlin-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlin-coroutines"}
 kotlin-browser = { group = "org.jetbrains.kotlinx", name = "kotlinx-browser", version.ref = "kotlin-browser"}
 kotlin-html = { group = "org.jetbrains.kotlinx", name = "kotlinx-html", version.ref = "kotlin-html"}
+kotlin-ktor-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "kotlin-ktor"}
+kotlin-ktor-js = { group = "io.ktor", name = "ktor-client-js", version.ref = "kotlin-ktor"}
+kotlin-ktor-content-negotiations = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "kotlin-ktor"}
+kotlin-ktor-serialization = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "kotlin-ktor"}
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

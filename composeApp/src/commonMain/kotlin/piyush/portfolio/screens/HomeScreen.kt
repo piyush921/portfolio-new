@@ -1,6 +1,8 @@
 package piyush.portfolio.screens
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -16,15 +18,20 @@ import androidx.compose.foundation.pager.PagerState
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import io.github.alexzhirkevich.compottie.LottieAnimation
@@ -32,11 +39,14 @@ import io.github.alexzhirkevich.compottie.LottieCompositionSpec
 import io.github.alexzhirkevich.compottie.LottieConstants
 import io.github.alexzhirkevich.compottie.Url
 import io.github.alexzhirkevich.compottie.rememberLottieComposition
+import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.Font
 import org.jetbrains.compose.resources.InternalResourceApi
 import org.jetbrains.compose.resources.painterResource
 import piyush.portfolio.AndroidGreen
+import piyush.portfolio.onHover
+import piyush.portfolio.openUrlInNewTab
 import portfolio_new.composeapp.generated.resources.Res
 import portfolio_new.composeapp.generated.resources.bg_home
 import portfolio_new.composeapp.generated.resources.dp
@@ -166,66 +176,41 @@ fun PagerScope.HomeScreen(pagerState: PagerState) {
                     modifier = Modifier.fillMaxWidth().align(Alignment.End).padding(40.dp),
                     horizontalAlignment = Alignment.End
                 ) {
-                    Image(
-                        painter = painterResource(Res.drawable.github),
-                        contentDescription = "github",
-                        modifier = Modifier.padding(20.dp).size(50.dp)
-                    )
-                    Image(
-                        painter = painterResource(Res.drawable.linkedin),
-                        contentDescription = "linkedin",
-                        modifier = Modifier.padding(20.dp).size(50.dp)
-                    )
-                    Image(
-                        painter = painterResource(Res.drawable.twitter),
-                        contentDescription = "twitter",
-                        modifier = Modifier.padding(20.dp).size(50.dp)
-                    )
-                    Image(
-                        painter = painterResource(Res.drawable.instagram),
-                        contentDescription = "instagram",
-                        modifier = Modifier.padding(20.dp).size(50.dp)
-                    )
+                    CreateBottomIcon(
+                        resource = Res.drawable.github,
+                        desc = "github",
+                        padding = 20.dp,
+                        size = 50.dp
+                    ) {
+                        openUrlInNewTab("https://github.com/piyush921")
+                    }
+                    CreateBottomIcon(
+                        resource = Res.drawable.linkedin,
+                        desc = "linkedin",
+                        padding = 20.dp,
+                        size = 50.dp
+                    ) {
+                        openUrlInNewTab("https://www.linkedin.com/in/piyush-kumar-220ba0126")
+                    }
+                    CreateBottomIcon(
+                        resource = Res.drawable.twitter,
+                        desc = "twitter",
+                        padding = 20.dp,
+                        size = 50.dp
+                    ) {
+                        openUrlInNewTab("https://x.com/kumarpiyush921")
+                    }
+                    CreateBottomIcon(
+                        resource = Res.drawable.instagram,
+                        desc = "instagram",
+                        padding = 20.dp,
+                        size = 50.dp
+                    ) {
+                        openUrlInNewTab("https://www.instagram.com/piyushj_k/")
+                    }
                 }
             }
         }
-        /*Column(
-            modifier = Modifier
-                .align(Alignment.BottomCenter)
-                .clickable {
-                    coroutineScope.launch {
-                        pagerState.animateScrollToPage(2)
-                    }
-                }
-        ) {
-            Text(
-                text = "Next",
-                color = Color.Gray,
-                fontSize = 25.sp,
-                modifier = Modifier
-            )
-
-            LottieAnimation(
-                composition = nextComposition,
-                iterations = LottieConstants.IterateForever,
-                modifier = Modifier.size(50.dp)
-            )
-        }*/
-
-        /*Canvas(
-            modifier = Modifier.align(alignment = Alignment.Center)
-        ) {
-            val strokeWidth = 5.dp.toPx()
-
-            drawRect(
-                color = Color.White,
-                size = Size(
-                    500f,
-                    300f
-                ),
-                style = Stroke(width = strokeWidth)
-            )
-        }*/
 
         Row(
             modifier = Modifier.fillMaxSize(),
@@ -242,4 +227,37 @@ fun PagerScope.HomeScreen(pagerState: PagerState) {
 
 
     }
+}
+
+@Composable
+fun CreateBottomIcon(
+    resource: DrawableResource,
+    desc: String,
+    padding: Dp,
+    size: Dp,
+    onClick: () -> Unit
+) {
+
+    var isHovered by remember { mutableStateOf(false) }
+    val interactionSource = remember { MutableInteractionSource() }
+
+    Image(
+        painter = painterResource(resource),
+        contentDescription = desc,
+        colorFilter = ColorFilter.tint(color = if (isHovered) Color.White else AndroidGreen),
+        modifier = Modifier
+            .padding(padding)
+            .size(size)
+            .onHover(
+                onEnter = {
+                    isHovered = true
+                },
+                onExit = {
+                    isHovered = false
+                }
+            ).clickable(
+                interactionSource = interactionSource,
+                indication = null // 👈 disables default hover effect
+            ) { onClick() }
+    )
 }

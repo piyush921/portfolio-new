@@ -51,8 +51,10 @@ import org.jetbrains.compose.resources.Font
 import org.jetbrains.compose.resources.InternalResourceApi
 import piyush.portfolio.AndroidGreen
 import piyush.portfolio.BgColor
+import piyush.portfolio.consoleLog
 import piyush.portfolio.experienceBgColor
 import piyush.portfolio.onHover
+import piyush.portfolio.openUrl
 import portfolio_new.composeapp.generated.resources.Res
 import portfolio_new.composeapp.generated.resources.lato_bold
 import portfolio_new.composeapp.generated.resources.lato_light
@@ -100,7 +102,7 @@ fun PagerScope.ExperienceScreen(pagerState: PagerState) {
                     )
                     Spacer(modifier = Modifier.height(30.dp))
                     CreateButton("See my Work") {
-
+                        openUrl("/projects")
                     }
                 }
                 Spacer(modifier = Modifier.width(2.dp).fillMaxHeight().background(AndroidGreen))
